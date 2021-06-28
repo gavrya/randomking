@@ -58,7 +58,7 @@
         }
     }
 
-    const handleFormSubmit = (form) => {
+    const handleOnClick = () => {
         navigator.vibrate = navigator.vibrate ||
             navigator.webkitVibrate ||
             navigator.mozVibrate ||
@@ -67,7 +67,9 @@
         if (navigator.vibrate) {
             navigator.vibrate([200, 200, 50, 50, 200, 50, 50, 50, 200, 50, 200]);
         }
+    }
 
+    const handleFormSubmit = (form) => {
         const options = {
             min: +form.min.value,
             max: +form.max.value,
@@ -128,7 +130,7 @@
             <input id="withIntOnly" type="checkbox" name="withIntOnly"><br>
         </p>
         <p>
-            <button type="submit" style="width: 100%;">Submit</button>
+            <button type="submit" style="width: 100%;" onclick="handleOnClick()">Submit</button>
         </p>
     </form>
 </div>
