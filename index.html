@@ -59,6 +59,15 @@
     }
 
     const handleFormSubmit = (form) => {
+        navigator.vibrate = navigator.vibrate ||
+            navigator.webkitVibrate ||
+            navigator.mozVibrate ||
+            navigator.msVibrate;
+
+        if (navigator.vibrate) {
+            navigator.vibrate([200, 200, 50, 50, 200, 50, 50, 50, 200, 50, 200]);
+        }
+
         const options = {
             min: +form.min.value,
             max: +form.max.value,
@@ -92,15 +101,6 @@
         const resultsElement = document.getElementById('results');
 
         resultsElement.innerText = JSON.stringify(genMap, null, 4);
-
-        navigator.vibrate = navigator.vibrate ||
-            navigator.webkitVibrate ||
-            navigator.mozVibrate ||
-            navigator.msVibrate;
-
-        if (navigator.vibrate) {
-            navigator.vibrate([200, 200, 50, 50, 200, 50, 50, 50, 200, 50, 200]);
-        }
     }
 </script>
 
