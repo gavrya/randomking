@@ -6,7 +6,7 @@
     <title>Randomizer</title>
     <style>
         body * {
-            font-size: 18px;
+            font-size: 24px;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
             color: gray;
         }
@@ -21,6 +21,10 @@
             border-radius: 4px;
             color: black;
             background-color: gray;
+        }
+
+        p {
+            margin: 10px 0;
         }
     </style>
 </head>
@@ -65,7 +69,7 @@
             navigator.msVibrate;
 
         if (navigator.vibrate) {
-            navigator.vibrate(1000);
+            navigator.vibrate([200, 200, 200]);
         }
     }
 
@@ -96,7 +100,7 @@
         }
 
         const generated = generateNumbers(options);
-        const genMap = {numbers: {}, avg: generated.avg};
+        const genMap = {avg: generated.avg, numbers: {}};
 
         generated.numbers.forEach((number, index) => genMap.numbers[index + 1] = number);
 
